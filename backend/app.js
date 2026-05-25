@@ -39,14 +39,14 @@ let cors=require('cors');
 let { body, validationResult } = require('express-validator');
 const { default: mongoose } = require('mongoose');
 let dbpath="mongodb+srv://ayushsinghkh2005:ayush%401973@cluster0.qbnlqip.mongodb.net/userdatainchatapp?appName=Cluster0";
-
+let port=process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json({limit:"10mb"}));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(userdata);
 app.use(messagerouter);
 mongoose.connect(dbpath).then(()=>{
-    server.listen(5000,()=>{
+    server.listen(port,()=>{
         console.log(`server is running on port http://localhost:5000`);
     });
 }).catch((err)=>{
