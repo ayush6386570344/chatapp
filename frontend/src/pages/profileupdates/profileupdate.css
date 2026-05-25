@@ -1,0 +1,206 @@
+/* .container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+}
+
+.card {
+  width: 360px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dp {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+input[type="file"] {
+  margin-top: 8px;
+}
+
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+} */
+.profile-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(180deg, #0b1220, #050a18);
+}
+
+.profile-card {
+  width: 420px;
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(15px);
+
+  color: white;
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* IMAGE */
+.image-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  margin: auto;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 3px solid #6366f1;
+
+  transition: 0.2s;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* UPLOAD BUTTON */
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  background: #6366f1;
+  color: white;
+
+  font-size: 12px;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+/* INPUTS */
+.profile-content input,
+.profile-content textarea {
+  width: 100%;
+
+  margin-top: 12px;
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+
+  color: white;
+
+  outline: none;
+}
+
+.profile-content textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* BUTTONS */
+.edit-btn {
+  margin-top: 15px;
+
+  padding: 10px 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+
+  cursor: pointer;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.save-btn {
+  flex: 1;
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #22c55e;
+  color: white;
+
+  cursor: pointer;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #ef4444;
+  color: white;
+
+  cursor: pointer;
+}

@@ -1,0 +1,105 @@
+.addfriend-container{
+    height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#569AFF,#383699);
+}
+
+.addfriend-card{
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.addfriend-card h1{
+    margin-bottom:30px;
+    color:#383699;
+    font-size:32px;
+}
+
+.input-box{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.input-box input{
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#f2f2f2;
+    font-size:16px;
+}
+
+.input-box button{
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#569AFF;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.input-box button:hover{
+    background:#383699;
+}.addfriend-container{
+    height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#569AFF,#383699);
+}
+
+.addfriend-card{
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.addfriend-card h1{
+    margin-bottom:30px;
+    color:#383699;
+    font-size:32px;
+}
+
+.input-box{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.input-box input{
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#f2f2f2;
+    font-size:16px;
+}
+
+.input-box button{
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#569AFF;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.input-box button:hover{
+    background:#383699;
+}
