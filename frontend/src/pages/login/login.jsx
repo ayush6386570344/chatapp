@@ -2,9 +2,7 @@
 import React, { useState, useContext } from 'react'
 import assets from '../../assets/assets'
 import './login.css'
-import { addusedata } from '../../service/userdatabase'
 import { useNavigate } from 'react-router-dom'
-import { checklogin } from '../../service/userdatabase'
 import { AuthContext } from '../../../usecontext/authcontext'
 const Login = () => {
   const {login,signup}=useContext(AuthContext);
@@ -94,12 +92,7 @@ const [showPassword, setShowPassword] = useState(false)
           })
       }
       else{
-        // const verification= await checklogin(formdata.email,formdata.password);
-        // console.log(verification);
-        // if (verification.check){
-          // localStorage.setItem("username", verification.username);
-        //   navigate("/chat");
-        // }
+        console.log(formdata.email,formdata.password);
         login({
           email:formdata.email,
           password:formdata.password});

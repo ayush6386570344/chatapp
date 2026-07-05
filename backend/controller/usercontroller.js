@@ -3,7 +3,8 @@ const User = require('../model/userdataschema'); // adjust path
 const generatetoken = require('../lib/util');
 const cloudinary=require('../lib/cloudinary');
 exports.signin = async (req, res) => {
-  console.log("🔥 SIGNUP CONTROLLER HIT");
+  console.log("i am here ",req.body);
+  
     try {
         const { username, email, password } = req.body;
       console.log(req.body);
@@ -40,7 +41,9 @@ try {
     }
 };
 exports.verifylogin=async(req,res)=>{
+  console.log("i am in verifylogin");
    try{  
+    console.log(req.body);
       const {email,password}=req.body;
       console.log(req.body);
       const user=await User.findOne({email});
@@ -66,6 +69,7 @@ exports.verifylogin=async(req,res)=>{
       user:user,
       token
       })}catch(error){
+        // console.log("error in login",error);
         return res.json({
           success:false,message:"there is some error"
         })
@@ -194,42 +198,43 @@ exports.handleeditprofile = async (req, res) => {
     });
   }
 };
-exports.provideuserprofile=async(req,res)=>{
-  console.log(req.body);
-  try{const {userid}=req.body;
-  const user=await User.findOne({_id:userid});
-  return res.status(200).json({
-    profile:user.profile
-  })}
-  catch(err){
-    return res.status(500).json({
-      message:"eroor occured"
-    })
-  }
-}
-exports.getfrienddetails=async(req,res)=>{
-  const {username}=req.body;
-  const user=await User.findOne({username});
-  const friendlist=user.friends;
-  const data=await User.find({
-    username:{$in:friendlist}
-  })
-  const profiledata=data.map((user)=>({
-    username:user.username,
-    name:user.profile.name,
-    bio:user.profile.bio,
-    image:user.profile.img
-  }))
-  console.log(profiledata);
-  return res.status(200).json({
-    profiledata:profiledata
-  })
-}
+// exports.provideuserprofile=async(req,res)=>{
+//   // console.log(req.body);
+//   // try{const {userid}=req.body;
+//   const userid=req.user._id;
+//   const user=await User.findOne({_id:userid});
+//   return res.status(200).json({
+//     profile:user.profile
+//   })}
+//   catch(err){
+//     return res.status(500).json({
+//       message:"eroor occured"
+//     })
+//   }
+// }
+// exports.getfrienddetails=async(req,res)=>{
+//   const {username}=req.body;
+//   const user=await User.findOne({username});
+//   const friendlist=user.friends;
+//   const data=await User.find({
+//     username:{$in:friendlist}
+//   })
+//   const profiledata=data.map((user)=>({
+//     username:user.username,
+//     name:user.profile.name,
+//     bio:user.profile.bio,
+//     image:user.profile.img
+//   }))
+//   console.log(profiledata);
+//   return res.status(200).json({
+//     profiledata:profiledata
+//   })
+// }
 
-exports.providefriendlist=async(req,res)=>{
-  const {username}=req.body;
-  const user= await User.findOne({username});
-  return res.status(200).json({
-    friendlist:user.friends
-  })
-}
+// exports.providefriendlist=async(req,res)=>{
+//   const {username}=req.body;
+//   const user= await User.findOne({username});
+//   return res.status(200).json({
+//     friendlist:user.friends
+//   })
+// }

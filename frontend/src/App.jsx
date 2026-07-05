@@ -10,7 +10,6 @@ import { AuthContext } from '../usecontext/authcontext'
 const App = () => {
 
   const { authuser } = useContext(AuthContext);
-  console.log(authuser);
   return (
     <>
       <Toaster/>
