@@ -65,12 +65,6 @@ const [showPassword, setShowPassword] = useState(false)
     if (!hasError) {
   
       if (currstate==='signup'){
-        // console.log(formdata.email);
-        //   const result = await addusedata(
-        //     formdata.username,
-        //     formdata.email,
-        //     formdata.password
-        //   )
         signup({
            username: formdata.username,
             email:formdata.email,

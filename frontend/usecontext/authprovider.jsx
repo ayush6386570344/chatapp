@@ -44,7 +44,7 @@ const [loading, setloading] = useState(true);
     const login = async (credentials) => {
         console.log("i am in login function",credentials.email);
         try {
-            const { data } = await axios.post("/check-login", credentials);
+            const {data} = await axios.post("/check-login", credentials);
             
         console.log(data);
             if (data.success) {
@@ -56,7 +56,8 @@ const [loading, setloading] = useState(true);
                 navigate('/chat');
             }
         } catch (error) {
-            toast.error(error.message);
+           
+            toast.error(error.response?.data?.message || error.message);
         }
     };
 

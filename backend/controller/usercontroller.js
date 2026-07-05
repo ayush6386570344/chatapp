@@ -41,13 +41,10 @@ try {
     }
 };
 exports.verifylogin=async(req,res)=>{
-  console.log("i am in verifylogin");
    try{  
-    console.log(req.body);
       const {email,password}=req.body;
       console.log(req.body);
       const user=await User.findOne({email});
-      console.log("fewweg",user);
       if (!user){
         return res.status(404).json({
           check:false,
@@ -56,6 +53,7 @@ exports.verifylogin=async(req,res)=>{
       }
       const isMatch=await bcrypt.compare(password,user.password);
       if (!isMatch){
+        console.log("password not matched");
         return res.status(404).json({
           check:false,
           message:"Invalid password"
@@ -121,6 +119,10 @@ exports.checkuser = async (req,res) => {
       message: "Error sending friend request"
     })
   }
+}
+exports.getuserprofile=async(req,res)=>{
+  console.log("i am in getuserprofile");
+  return res.json({succes:true,data:req.user});
 }
 exports.friendrequestlist= async (req,res)=>{
   try{

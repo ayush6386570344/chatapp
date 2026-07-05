@@ -12,4 +12,5 @@ userdata.post(
   controller.handleeditprofile
 )
 userdata.get("/check",protectRoute,controller.checkAuth);
+userdata.get("/userprofile",protectRoute,controller.getuserprofile);
 module.exports=userdata;

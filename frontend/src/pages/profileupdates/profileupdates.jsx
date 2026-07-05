@@ -28,18 +28,20 @@ const ProfileUpdate = () => {
   // GET PROFILE
   useEffect(() => {
     const fetchProfile = async () => {
-      const { data: prof } = await axios.get(`/getprofile/${authuser._id}`)
-
+      // const { data: prof } = await axios.get(`/getprofile/${authuser._id}`)
+      const {data} = await axios.get(`/userprofile`);
+      console.log(data);
+      console.log("i am in profile update", data.data.profile)
       setProfile({
-        name: prof.profile.name,
-        bio: prof.profile.bio,
-        image: prof.profile.img
+        name: data.data.profile.name,
+        bio: data.data.profile.bio,
+        image: data.data.profile.img
       })
 
       setTempProfile({
-        name: prof.profile.name,
-        bio: prof.profile.bio,
-        image: prof.profile.img
+        name: data.data.profile.name,
+        bio: data.data.profile.bio,
+        image: data.data.profile.img
       })
     }
 

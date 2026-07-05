@@ -1,21 +1,37 @@
-let User=require('../model/userdataschema'); 
+const User = require("../model/userdataschema");
 const jwt = require("jsonwebtoken");
-const protectroute=async(req,res,next)=>{
-    try{
-        console.log("fewwekg");
-        const token=req.headers.token;
-        console.log(token);
-        const decoded=jwt.verify(token,process.env.JWT_SECRET);
-console.log(decoded.userId);
-        const user=await User.findById(decoded.userId).select("-password");
-        console.log("i am in protecteoute,user",user);
-        if (!user){
-            return res.json({success:false});
+
+const protectroute = async (req, res, next) => {
+    try {
+        const token = req.headers.token;
+
+        if (!token) {
+            return res.status(401).json({
+                success: false,
+                message: "Token not found"
+            });
         }
-        req.user=user;
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        const user = await User.findById(decoded.userId).select("-password");
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+
+        req.user = user;
         next();
-    }catch(error){
-        return res.json({success:false});
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({
+            success: false,
+            message: "Invalid token"
+        });
     }
-}
-module.exports=protectroute;
+};
+
+module.exports = protectroute;
