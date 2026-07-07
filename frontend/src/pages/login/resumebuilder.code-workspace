@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "D:/resumebuilder"
+	},
+	{
+		"path": "../../../.."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "chatapp"
+  }
+}
