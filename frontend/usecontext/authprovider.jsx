@@ -55,6 +55,10 @@ const [loading, setloading] = useState(true);
                 toast.success("Login successful");
                 navigate('/chat');
             }
+            else{
+                toast.error(error.response?.data?.message || error.message);
+
+            }
         } catch (error) {
            
             toast.error(error.response?.data?.message || error.message);
@@ -64,7 +68,7 @@ const [loading, setloading] = useState(true);
     const signup = async (credentials) => {
         try {
             const { data } = await axios.post("/userdata", credentials);
-console.log(data);
+                console.log(data);
             if (data.success) {
                 setauthuser(data.userdata);
                 axios.defaults.headers.common["token"] = data.token;
@@ -82,8 +86,7 @@ console.log(data);
                 });
             }
         } catch (error) {
-            console.log("kefjkewe");
-            toast.error(error.message);
+            toast.error(error.response?.data?.message || error.message);
         }
     };
 

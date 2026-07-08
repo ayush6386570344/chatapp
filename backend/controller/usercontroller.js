@@ -2,12 +2,30 @@ const bcrypt = require('bcrypt');
 const User = require('../model/userdataschema'); // adjust path
 const generatetoken = require('../lib/util');
 const cloudinary=require('../lib/cloudinary');
-exports.signin = async (req, res) => {
-  console.log("i am here ",req.body);
-  
+exports.signup = async (req, res) => {
+  console.log("i am in signup");
     try {
         const { username, email, password } = req.body;
-      console.log(req.body);
+        const checkduplicatename=await User.findOne({username});
+        const checkduplicateemail=await User.findOne({email});
+        
+        if (checkduplicatename || checkduplicateemail) {
+
+            let message = "";
+
+            if (checkduplicatename) {
+                message += "Username already exists. ";
+            }
+
+            if (checkduplicateemail) {
+                message += "Email already exists.";
+            }
+
+            return res.status(400).json({
+                success: false,
+                message
+            });
+        }
         // 1. hash password
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);

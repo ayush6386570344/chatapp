@@ -3,7 +3,7 @@ let express=require('express');
 let protectRoute=require('../server/auth');
 let userdata=express.Router();
 let controller=require('../controller/usercontroller');
-userdata.post('/userdata',controller.signin);   
+userdata.post('/userdata',controller.signup);   
 userdata.post('/check-login',controller.verifylogin);
 userdata.post(
   "/editprofile",
