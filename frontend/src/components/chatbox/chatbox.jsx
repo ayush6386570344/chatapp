@@ -4,11 +4,11 @@ import assets from '../../assets/assets';
 import { ChatContext } from '../../../usecontext/chatcontext';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../usecontext/authcontext';
-
+import { ArrowLeft } from "lucide-react";
 const ChatBox = () => {
   const scrollEnd = useRef(null);
   const {
-    message,
+    message, 
     selecteduser,
     setselecteduser,
     functiontosendmessagetoselecteduser,
@@ -65,6 +65,10 @@ const ChatBox = () => {
   return (
     <div className="chat-box">
       <div className="chat-user">
+        <ArrowLeft
+        className="back-btn"
+        onClick={() => setselecteduser(null)}
+    />
         <img
           src={selecteduser.profile.img || assets.avatar_icon}
           alt=""

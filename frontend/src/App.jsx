@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './index.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/login/login'
+// import Chat from './pages/chat/Chat'
 import Chat from './pages/chat/Chat'
 import Profileupdates from './pages/profileupdates/profileupdates'
 import { Toaster } from "react-hot-toast"
